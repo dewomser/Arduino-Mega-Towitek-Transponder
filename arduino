@@ -1,0 +1,29 @@
+long incomingByte;  
+char Data[6];
+int i;
+unsigned long Tempo;
+
+void setup()
+{
+ Serial.begin(9600);
+}
+
+void loop(){
+
+  do {
+    if (Serial.available()) {      
+      Data[i] = Serial.read();
+      i++;
+      }    
+    if(i<1)Tempo = millis();
+    } while (i<5&&(millis()-Tempo) < 500);  // liest 5 bytes ein oder wartet 0,5 Sekunden  
+  Data[i] = 0;    // end-null für String dazugeben
+  incomingByte = atof(Data);   // konvertierung String in Zahl
+ 
+  Serial.println(incomingByte,HEX);  // Ausgabe als Zahl
+ 
+  for (i=0; i<5; i++) {
+   Serial.print(Data[i],HEX);  // Ausgabe als Char.  
+   }
+  i=0;
+}
