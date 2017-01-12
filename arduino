@@ -1,29 +1,44 @@
-long incomingByte;  
-char Data[6];
+// --------------------------------------------------------
+// #include <SoftwareSerial.h>
+//Serial1(0, 1); // RX and TX
 int i;
-unsigned long Tempo;
-
+int z = 0;
+int key[5];
 void setup()
 {
- Serial.begin(9600);
+Serial1.begin(9600); // start serial to RFID reader
+Serial.begin(9600); // start serial to PC
+}
+void loop()
+{
+if (Serial1.available() > 0)
+{
+i = Serial1.read();
+
+z ++;
+if (z <6){
+Serial.print(i, DEC);
+Serial.print(" ");
+key[z] =i;
+if (z == 5)
+  {
+ Serial.println();
+ Serial1.end();
+ delay(5000);
+ Serial1.begin(9600);
+ 
+
+z=0;
+  }
 }
 
-void loop(){
 
-  do {
-    if (Serial.available()) {      
-      Data[i] = Serial.read();
-      i++;
-      }    
-    if(i<1)Tempo = millis();
-    } while (i<5&&(millis()-Tempo) < 500);  // liest 5 bytes ein oder wartet 0,5 Sekunden  
-  Data[i] = 0;    // end-null für String dazugeben
-  incomingByte = atof(Data);   // konvertierung String in Zahl
- 
-  Serial.println(incomingByte,HEX);  // Ausgabe als Zahl
- 
-  for (i=0; i<5; i++) {
-   Serial.print(Data[i],HEX);  // Ausgabe als Char.  
-   }
-  i=0;
+//Serial.println(key[1]);
+//Serial.println(key[2]);
+//Serial.println(key[3]);
+//Serial.println(key[4]);
+//Serial.println(key[5]); 
 }
+
+}
+// ---------------------------------
