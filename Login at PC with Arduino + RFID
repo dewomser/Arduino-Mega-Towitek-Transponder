@@ -1,11 +1,13 @@
 // --------------------------------------------------------
-// Masterpasswort .  Anmelden mit RFID-ROM Chip TOWITEC + Arduino Micro.
-//--------start USB-Keyboard 
+//  Login on PC with RFID-ROM Chip TOWITEC + Arduino Micro. A password-store
+//--------------------------------------------------------
+//--------start Arduino as USB-Keyboard 
 #include "Keyboard.h"
 int i;
 int z = 0;
 int key[5];
 String keyvalue;
+int bytes_from_RFID = 5;
 void setup()
 {
 Serial1.begin(9600); // start serial to RFID reader
@@ -19,13 +21,13 @@ if (Serial1.available() > 0)
 i = Serial1.read();
 z ++;
 // -------------6 = 5+1(bytes)
-if (z <6)
+if (z < (bytes_from_RFID + 1) )
   {
 Serial.print(i, DEC);
 Serial.print(" ");
 key[z] =i;
 // -----------------5 bytes from RFID
-if (z == 5)
+if (z == bytes_from_RFID)
    {
  Serial.println();
  Serial1.end();
@@ -35,12 +37,12 @@ if (z == 5)
  keyvalue = (keyvalue + key[3]);
  keyvalue = (keyvalue + key[4]);
  keyvalue = (keyvalue + key[5]);
- if (keyvalue == "5 bytes from RFID")
+ if (keyvalue == "Put in the 5 bytes provided by serial monitor without spaces!")
    {
-
+//------- \n after password means Newline or ENTER
  Keyboard.print("topsecretPW\n");
    }
-// -----------------5 Sekundensperre
+// -----------------5 Seconds lock
  delay(5000);
 --------------------Thats not nice but it works.
  Serial1.begin(9600);
