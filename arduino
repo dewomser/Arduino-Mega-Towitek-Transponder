@@ -1,4 +1,7 @@
 // --------------------------------------------------------
+// Code ist für Arduino Micro
+// Das mit dem "Serial1.begin" in der loop gefällt mit nicht. Kanns nicht besser.
+
 // #include <SoftwareSerial.h>
 //Serial1(0, 1); // RX and TX
 int i;
