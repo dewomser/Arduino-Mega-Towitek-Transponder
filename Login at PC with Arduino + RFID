@@ -44,7 +44,7 @@ if (z == bytes_from_RFID)
    }
 // -----------------5 Seconds lock
  delay(5000);
---------------------Thats not nice but it works.
+//--------------------Thats not nice but it works.
  Serial1.begin(9600);
  
 z=0;
