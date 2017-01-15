@@ -37,9 +37,10 @@ if (z == bytes_from_RFID)
  keyvalue = (keyvalue + key[3]);
  keyvalue = (keyvalue + key[4]);
  keyvalue = (keyvalue + key[5]);
- if (keyvalue == "Put in the 5 bytes provided by serial monitor without spaces!")
+ //--------------Put in the 5 bytes provided by serial monitor without spaces!
+ if (keyvalue == 12345)
    {
-//------- \n after password means Newline or ENTER
+//------- Put in your password. \n after password means Newline or ENTER
  Keyboard.print("topsecretPW\n");
    }
 // -----------------5 Seconds lock
