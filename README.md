@@ -5,7 +5,7 @@ Arduino Micro is in keyboard-mode.
 Passwordsafe is Arduino. No Server needed.
 
 Wiring Transponder: red -> + (5 or 3.3V) | blue -> GND | yellow -> RX
----
+
 ## password2-switch...
 Transponder Code shown in  serial Monitor.
 Input Pin2 :PW can be switched
