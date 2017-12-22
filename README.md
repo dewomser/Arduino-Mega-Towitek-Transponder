@@ -12,4 +12,4 @@ Input Pin2 :PW can be switched
 PW-length=15 bytes 
 PW-store EEPROM Addr 0
 Password is changeable within first 20 seconds after powersupply connected via Arduino serial Monitor or bash: echo "secretPW123" > /dev/ttyACM0
-
+Blogpost: https://untergang.de/index.php/linux-blog/passwortmanager-mit-arduino-2.html
