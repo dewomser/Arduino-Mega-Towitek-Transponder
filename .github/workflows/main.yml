@@ -1,17 +1,8 @@
-- name: Run arduino-builder
-  # You may pin to the exact commit or the version.
-  # uses: Legion2/arduino-builder-action@6f5bb3259d68d6065b735791e7e80154ab0aa4e5
-  uses: Legion2/arduino-builder-action@v2.0.0
-  with:
-    # Path to a single sketch
-    sketch: # optional
-    # Directory in which to search for sketches
-    sketchDirectory: # optional, default is examples
-    # Fully Qualified Board Name
-    board: # optional, default is arduino:avr:uno
-    # Directory containing Arduino libraries.
-Use this directory to install required 3rd-party libraries.
-
-    libraries: # optional, default is libraries
-    # Directory containing Arduino platforms
-    hardware: # optional, default is hardware
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: arduino/arduino-lint-action@v1
+      
