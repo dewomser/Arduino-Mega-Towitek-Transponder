@@ -27,5 +27,5 @@ jobs:
       - name: Compile all examples
         uses: ArminJo/arduino-test-compile@master
         with:
-          sketch-names: acc-logger.ino
+          sketch-names: passw_0917.ino
           arduino-board-fqbn: arduino:avr:micro
