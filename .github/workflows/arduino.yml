@@ -18,7 +18,7 @@ jobs:
           path: CustomLibrary # must contain string "Custom"
      
       - name: Checkout custom library wire
-        uses: actions/EEPROM@v2
+        uses: actions/eeprom@v2
         with:
           repository: arduino/ArduinoCore-avr 
           ref: master
