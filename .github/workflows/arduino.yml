@@ -2,10 +2,10 @@ name: Compile Arduino
 on:
   push:
     paths:
-    - 'acc-logger/**'  
+    - '**'  
 jobs:
   build:
-    name: Test compiling examples for UNO
+    name: Test compiling examples for MICRO
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
