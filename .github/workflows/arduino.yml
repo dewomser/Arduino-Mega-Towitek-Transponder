@@ -1,0 +1,31 @@
+name: Compile Arduino
+on:
+  push:
+    paths:
+    - 'acc-logger/**'  
+jobs:
+  build:
+    name: Test compiling examples for UNO
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Checkout custom library
+        uses: actions/checkout@v2
+        with:
+          repository: sparkfun/SparkFun_MMA8452Q_Arduino_Library
+          ref: master
+          path: CustomLibrary # must contain string "Custom"
+     
+      - name: Checkout custom library wire
+        uses: actions/checkout@v2
+        with:
+          repository: arduino/ArduinoCore-avr 
+          ref: master
+          path: CustomLibrary_wire # must contain string "Custom"     
+     
+      - name: Compile all examples
+        uses: ArminJo/arduino-test-compile@master
+        with:
+          sketch-names: acc-logger.ino
+          arduino-board-fqbn: arduino:avr:micro
