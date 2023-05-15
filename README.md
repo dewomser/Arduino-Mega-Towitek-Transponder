@@ -1,4 +1,7 @@
 # Arduino-Mega-Towitek-Transponder
+
+[![arduino-test](https://github.com/dewomser/Arduino-Mega-Towitek-Transponder/actions/workflows/main.yml/badge.svg)](https://github.com/dewomser/Arduino-Mega-Towitek-Transponder/actions/workflows/main.yml)
+
 How to communicate with TWT 2021  and Arduino Mega und Micro
 
 Arduino Micro is in keyboard-mode.
